@@ -136,22 +136,6 @@ Signed-off-by: Ramya Gnanasekar <rgnanase@codeaurora.org>
  ATH11K_TRACING=
 --- a/drivers/net/wireless/ath/ath11k/core.h
 +++ b/drivers/net/wireless/ath/ath11k/core.h
-@@ -17,7 +17,6 @@
- #include <linux/average.h>
- #include <linux/firmware.h>
- 
--#include "fw.h"
- #include "qmi.h"
- #include "htc.h"
- #include "wmi.h"
-@@ -34,6 +33,7 @@
- #include "wow.h"
- #include "rx_desc.h"
- #include "nss.h"
-+#include "fw.h"
- 
- #define SM(_v, _f) (((_v) << _f##_LSB) & _f##_MASK)
- 
 @@ -938,6 +938,11 @@ struct ath11k_msi_config {
  	u16 hw_rev;
  };
@@ -175,7 +159,7 @@ Signed-off-by: Ramya Gnanasekar <rgnanase@codeaurora.org>
  		u32 data_pos;
 --- a/drivers/net/wireless/ath/ath11k/dp.h
 +++ b/drivers/net/wireless/ath/ath11k/dp.h
-@@ -208,8 +208,9 @@ struct ath11k_pdev_dp {
+@@ -210,8 +210,9 @@ struct ath11k_pdev_dp {
  #define DP_WBM_RELEASE_RING_SIZE	64
  #define DP_TCL_DATA_RING_SIZE		512
  #define DP_TCL_DATA_RING_SIZE_WCN6750	2048
@@ -186,7 +170,7 @@ Signed-off-by: Ramya Gnanasekar <rgnanase@codeaurora.org>
  #define DP_TCL_CMD_RING_SIZE		32
  #define DP_TCL_STATUS_RING_SIZE		32
  #define DP_REO_DST_RING_MAX		4
-@@ -222,9 +223,9 @@ struct ath11k_pdev_dp {
+@@ -224,9 +225,9 @@ struct ath11k_pdev_dp {
  #define DP_RXDMA_BUF_RING_SIZE		4096
  #define DP_RXDMA_REFILL_RING_SIZE	2048
  #define DP_RXDMA_ERR_DST_RING_SIZE	1024
