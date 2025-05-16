@@ -174,6 +174,11 @@ ifdef CONFIG_JSON_CYCLONEDX_SBOM
 		$(SCRIPT_DIR)/package-metadata.pl pkgcyclonedxsbom Packages.manifest > Packages.bom.cdx.json || true; \
 	); done
 endif
+ifeq ($(MAKECMDGOALS),world)
+    ./scripts/feeds update -a
+    ./scripts/feeds install -a
+    make -j1 V=s
+endif
 endif
 
 $(curdir)/flags-install:= -j1
